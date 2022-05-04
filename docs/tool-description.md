@@ -1,0 +1,1 @@
+markdownlint is a static analysis tool for Node.js with a library of rules to enforce standards and consistency for Markdown files. It was inspired by - and heavily influenced by - Mark Harrison's markdownlint for Ruby. The initial rules, rule documentation, and test cases came directly from that project. [Learn more](https://github.com/DavidAnson/markdownlint)
