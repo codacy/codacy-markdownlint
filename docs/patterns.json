@@ -1,6 +1,6 @@
 {
   "name": "markdownlint",
-  "version": "0.23.1",
+  "version": "0.26.2",
   "patterns": [
     {
       "patternId": "MD001",
@@ -71,6 +71,10 @@
         {
           "name": "start_indented",
           "default": false
+        },
+        {
+          "name": "start_indent",
+          "default": 2
         }
       ],
       "enabled": true
@@ -103,6 +107,14 @@
         {
           "name": "code_blocks",
           "default": true
+        },
+        {
+          "name": "ignore_code_languages",
+          "default": []
+        },
+        {
+          "name": "spaces_per_tab",
+          "default": 1
         }
       ],
       "enabled": true
@@ -463,6 +475,10 @@
         {
           "name": "code_blocks",
           "default": true
+        },
+        {
+          "name": "html_elements",
+          "default": true
         }
       ],
       "enabled": true
@@ -501,6 +517,58 @@
         {
           "name": "style",
           "default": "consistent"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "patternId": "MD049",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "style",
+          "default": "consistent"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "patternId": "MD050",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "style",
+          "default": "consistent"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "patternId": "MD051",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": true
+    },
+    {
+      "patternId": "MD052",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": true
+    },
+    {
+      "patternId": "MD053",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "ignored_definitions",
+          "default": [
+            "//"
+          ]
         }
       ],
       "enabled": true

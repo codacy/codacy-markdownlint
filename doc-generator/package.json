@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "codacy-seed": "^2.2.0",
-    "axios": "^0.21.1",
-    "markdownlint": "^0.23.1",
+    "axios": "^1.2.0",
+    "markdownlint": "^0.26.2",
     "md-2-json": "^2.0.0"
   },
   "devDependencies": {
