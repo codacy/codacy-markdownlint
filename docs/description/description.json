@@ -59,6 +59,10 @@
       {
         "name": "start_indented",
         "description": "Whether to indent the first level of the list"
+      },
+      {
+        "name": "start_indent",
+        "description": "Spaces for first level indent (when start_indented is set)"
       }
     ],
     "patternId": "MD007",
@@ -89,6 +93,14 @@
       {
         "name": "code_blocks",
         "description": "Include code blocks"
+      },
+      {
+        "name": "ignore_code_languages",
+        "description": "Fenced code languages to ignore"
+      },
+      {
+        "name": "spaces_per_tab",
+        "description": "Number of spaces for each hard tab"
       }
     ],
     "patternId": "MD010",
@@ -140,7 +152,7 @@
       },
       {
         "name": "headers",
-        "description": "Include headers"
+        "description": "Include headings"
       },
       {
         "name": "strict",
@@ -418,6 +430,10 @@
       {
         "name": "code_blocks",
         "description": "Include code blocks"
+      },
+      {
+        "name": "html_elements",
+        "description": "Include HTML elements"
       }
     ],
     "patternId": "MD044",
@@ -451,11 +467,56 @@
     "parameters": [
       {
         "name": "style",
-        "description": "Code fence syle"
+        "description": "Code fence style"
       }
     ],
     "patternId": "MD048",
     "title": "MD048 - Code fence style",
     "description": "Code fence style"
+  },
+  {
+    "parameters": [
+      {
+        "name": "style",
+        "description": "Emphasis style should be consistent"
+      }
+    ],
+    "patternId": "MD049",
+    "title": "MD049 - Emphasis style should be consistent",
+    "description": "Emphasis style should be consistent"
+  },
+  {
+    "parameters": [
+      {
+        "name": "style",
+        "description": "Strong style should be consistent"
+      }
+    ],
+    "patternId": "MD050",
+    "title": "MD050 - Strong style should be consistent",
+    "description": "Strong style should be consistent"
+  },
+  {
+    "parameters": [],
+    "patternId": "MD051",
+    "title": "MD051 - Link fragments should be valid",
+    "description": "Link fragments should be valid"
+  },
+  {
+    "parameters": [],
+    "patternId": "MD052",
+    "title": "MD052 - Reference links and images should use a label that is defined",
+    "description": "Reference links and images should use a label that is defined"
+  },
+  {
+    "parameters": [
+      {
+        "name": "ignored_definitions",
+        "description": "Ignored definitions"
+      }
+    ],
+    "patternId": "MD053",
+    "title": "MD053 - Link and image reference definitions should be needed",
+    "description": "Link and image reference definitions should be needed"
   }
 ]
