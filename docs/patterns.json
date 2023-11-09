@@ -1,6 +1,6 @@
 {
   "name": "markdownlint",
-  "version": "0.26.2",
+  "version": "0.31.1",
   "patterns": [
     {
       "patternId": "MD001",
@@ -421,7 +421,16 @@
       "patternId": "MD040",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "allowed_languages",
+          "default": []
+        },
+        {
+          "name": "language_only",
+          "default": false
+        }
+      ],
       "enabled": true
     },
     {
@@ -459,6 +468,10 @@
         {
           "name": "headers",
           "default": []
+        },
+        {
+          "name": "match_case",
+          "default": false
         }
       ],
       "enabled": true
@@ -556,7 +569,12 @@
       "patternId": "MD052",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "shortcut_syntax",
+          "default": false
+        }
+      ],
       "enabled": true
     },
     {
