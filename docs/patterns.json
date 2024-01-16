@@ -1,24 +1,12 @@
 {
   "name": "markdownlint",
-  "version": "0.31.1",
+  "version": "0.33.0",
   "patterns": [
     {
       "patternId": "MD001",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "MD002",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "level",
-          "default": 1
-        }
-      ],
       "enabled": true
     },
     {
@@ -47,13 +35,6 @@
     },
     {
       "patternId": "MD005",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "MD006",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -168,10 +149,6 @@
           "default": true
         },
         {
-          "name": "headers",
-          "default": true
-        },
-        {
           "name": "strict",
           "default": false
         },
@@ -245,10 +222,6 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
-        {
-          "name": "allow_different_nesting",
-          "default": false
-        },
         {
           "name": "siblings_only",
           "default": false
@@ -466,10 +439,6 @@
           "default": []
         },
         {
-          "name": "headers",
-          "default": []
-        },
-        {
           "name": "match_case",
           "default": false
         }
@@ -589,6 +558,57 @@
           ]
         }
       ],
+      "enabled": true
+    },
+    {
+      "patternId": "MD054",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "autolink",
+          "default": true
+        },
+        {
+          "name": "inline",
+          "default": true
+        },
+        {
+          "name": "full",
+          "default": true
+        },
+        {
+          "name": "collapsed",
+          "default": true
+        },
+        {
+          "name": "shortcut",
+          "default": true
+        },
+        {
+          "name": "url_inline",
+          "default": true
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "patternId": "MD055",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "style",
+          "default": "consistent"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "patternId": "MD056",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
       "enabled": true
     }
   ]
