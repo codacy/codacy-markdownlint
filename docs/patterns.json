@@ -78,7 +78,7 @@
           "default": false
         }
       ],
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "MD010",
@@ -157,7 +157,7 @@
           "default": false
         }
       ],
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "MD014",
@@ -317,7 +317,7 @@
           "default": true
         }
       ],
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "MD032",
@@ -404,7 +404,7 @@
           "default": false
         }
       ],
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "MD041",
@@ -420,7 +420,7 @@
           "default": "^\\s*title\\s*[:=]"
         }
       ],
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "MD042",
@@ -443,7 +443,7 @@
           "default": false
         }
       ],
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "MD044",
@@ -489,7 +489,7 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "MD048",

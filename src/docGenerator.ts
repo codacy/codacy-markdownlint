@@ -54,7 +54,7 @@ export class DocGenerator {
   }
 
   async generateSpecification(patternsSchema: any) {
-    const disabledDefaultPatternIds = ['patternId1', 'patternId2', 'patternId3'];
+    const disabledDefaultPatternIds = ['MD013','MD043','MD041','MD009','MD040','MD031','MD047'];
     const patternSpecs: PatternSpec[] = this.getPatternIds().map((patternId) => {
       const propertiesStructure = patternsSchema["properties"][patternId]
 
