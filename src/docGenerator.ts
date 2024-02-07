@@ -54,8 +54,8 @@ export class DocGenerator {
   }
 
   async generateSpecification(patternsSchema: any) {
+    const disabledDefaultPatternIds = ['patternId1', 'patternId2', 'patternId3'];
     const patternSpecs: PatternSpec[] = this.getPatternIds().map((patternId) => {
-      const ruleSchema = patternsSchema["properties"][patternId];
       const propertiesStructure = patternsSchema["properties"][patternId]
 
       var parametersSpecs: ParameterSpec[] = []
@@ -65,6 +65,11 @@ export class DocGenerator {
           new ParameterSpec(property, propertiesStructure["properties"][property]["default"])
         )
       }
+
+      let defaultPropertyValue = (propertiesStructure && propertiesStructure["default"]) ? (patternsSchema["properties"][patternId]["default"] === true) : false;
+      if (disabledDefaultPatternIds.includes(patternId)) {
+        defaultPropertyValue = false;
+      }
       
       return new PatternSpec(
         patternId,
@@ -72,7 +77,7 @@ export class DocGenerator {
         "CodeStyle",
         undefined,
         parametersSpecs,
-        (propertiesStructure && propertiesStructure["default"])?(patternsSchema["properties"][patternId]["default"] === true):false
+        defaultPropertyValue
       )
     })
     
