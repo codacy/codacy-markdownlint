@@ -53,8 +53,12 @@ export class DocGenerator {
     }))
   }
 
+  static isDefaultPattern(patternId: string): boolean {
+    const disabled = ['MD013','MD043','MD041','MD009','MD040','MD031','MD047']
+    return !disabled.includes(patternId)
+  }
+
   async generateSpecification(patternsSchema: any) {
-    const disabledDefaultPatternIds = ['MD013','MD043','MD041','MD009','MD040','MD031','MD047'];
     const patternSpecs: PatternSpec[] = this.getPatternIds().map((patternId) => {
       const propertiesStructure = patternsSchema["properties"][patternId]
 
@@ -65,11 +69,9 @@ export class DocGenerator {
           new ParameterSpec(property, propertiesStructure["properties"][property]["default"])
         )
       }
-
-      let defaultPropertyValue = (propertiesStructure && propertiesStructure["default"]) ? (patternsSchema["properties"][patternId]["default"] === true) : false;
-      if (disabledDefaultPatternIds.includes(patternId)) {
-        defaultPropertyValue = false;
-      }
+    const defaultPropertyValue = DocGenerator.isDefaultPattern(patternId)
+        ? false
+        : propertiesStructure?.["default"] && patternsSchema["properties"][patternId]["default"] === true
       
       return new PatternSpec(
         patternId,
