@@ -55,7 +55,7 @@ export class DocGenerator {
 
   static isDefaultPattern(patternId: string): boolean {
     const disabled = ['MD013','MD043','MD041','MD009','MD040','MD031','MD047']
-    return !disabled.includes(patternId)
+    return disabled.includes(patternId)
   }
 
   async generateSpecification(patternsSchema: any) {
