@@ -53,7 +53,7 @@ export class DocGenerator {
     }))
   }
 
-  static toDisablePattern(patternId: string): boolean {
+  static DisabledPattern(patternId: string): boolean {
     const disabled = ['MD013','MD043','MD041','MD009','MD040','MD031','MD047']
     return !disabled.includes(patternId)
   }
@@ -69,7 +69,7 @@ export class DocGenerator {
           new ParameterSpec(property, propertiesStructure["properties"][property]["default"])
         )
       }
-    const defaultPropertyValue = !DocGenerator.toDisablePattern(patternId)
+    const defaultPropertyValue = !DocGenerator.DisabledPattern(patternId)
         ? false
         : propertiesStructure?.["default"] && patternsSchema["properties"][patternId]["default"] === true
       
