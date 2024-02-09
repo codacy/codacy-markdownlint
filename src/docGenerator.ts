@@ -24,7 +24,7 @@ export class DocGenerator {
   }
  
   getPatternIds(): string[] {
-      return this.rules.map((rule: { names: string[] }) => rule.names[0])
+    return this.rules.map((rule: { names: string[] }) => rule.names[0])
   }
 
   getPatternId(title: string): string {
@@ -53,30 +53,44 @@ export class DocGenerator {
     }))
   }
 
-  async generateSpecification(patternsSchema: any) {
-    const patternSpecs: PatternSpec[] = this.getPatternIds().map((patternId) => {
-      const ruleSchema = patternsSchema["properties"][patternId];
-      const propertiesStructure = patternsSchema["properties"][patternId]
+  static isDefaultPattern(patternId: string, propertiesStructure: { [key: string]: boolean }): boolean {
+    const disabled = [
+      'MD013',
+      'MD043',
+      'MD041',
+      'MD009',
+      'MD040',
+      'MD031',
+      'MD047'
+    ]
 
-      var parametersSpecs: ParameterSpec[] = []
-      if (propertiesStructure && propertiesStructure["properties"]) { 
-        var propertiesNames = Object.keys(propertiesStructure["properties"])
-        parametersSpecs = propertiesNames.map((property) => 
-          new ParameterSpec(property, propertiesStructure["properties"][property]["default"])
+    return !disabled.includes(patternId) && propertiesStructure["default"]
+  }
+
+  async generateSpecification(patternsSchema: any) {
+    const patternSpecs: PatternSpec[] = this.getPatternIds()
+      .map((patternId) => {
+        const propertiesStructure = patternsSchema["properties"][patternId]
+        
+        var parametersSpecs: ParameterSpec[] = []
+        if (propertiesStructure && propertiesStructure["properties"]) { 
+          var propertiesNames = Object.keys(propertiesStructure["properties"])
+          parametersSpecs = propertiesNames.map((property) => 
+            new ParameterSpec(property, propertiesStructure["properties"][property]["default"])
+          )
+        }
+          
+        return new PatternSpec(
+          patternId,
+          "Info",
+          "CodeStyle",
+          undefined,
+          parametersSpecs,
+          DocGenerator.isDefaultPattern(patternId, propertiesStructure)
         )
-      }
-      
-      return new PatternSpec(
-        patternId,
-        "Info",
-        "CodeStyle",
-        undefined,
-        parametersSpecs,
-        (propertiesStructure && propertiesStructure["default"])?(patternsSchema["properties"][patternId]["default"] === true):false
-      )
-    })
-    
+      })
     const specification = new Specification("markdownlint", markdownlint.getVersion(), patternSpecs);
+
     await writeFile(this.docsPath + "patterns.json", JSON.stringify(specification, null, 2));
   }
 
