@@ -1,15 +1,11 @@
 <module name="root">
-    <module name="BeforeExecutionExclusionFileFilter">
-        <property name="fileNamePattern" value="\.markdownlint\.json" />
-    </module>
-
-    <module name="MD013">
-        <property name="line_length" value="150" />
-    </module>
-    <module name="MD004">
-        <property name="style" value="dash" />
-    </module>
-    <module name="MD030">
-        <property name="unnamedParam" value="ul_single" />
-    </module>
+  <module name="MD004">
+    <property name="style" value="dash" />
+  </module>
+  <module name="MD013">
+    <property name="line_length" value="120" />
+  </module>
+  <module name="MD030">
+    <property name="unnamedParam" value="ul_single" />
+  </module>
 </module>

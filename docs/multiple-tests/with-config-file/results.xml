@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <checkstyle version="4.3">
-    <file name="readme.md">
-        <error source="MD001" line="36" message="Expected: h2; Actual: h3" severity="info" />
-        <error source="MD004" line="44" message="Expected: dash; Actual: asterisk" severity="info" />
-        <error source="MD004" line="45" message="Expected: dash; Actual: asterisk" severity="info" />
-        <error source="MD004" line="46" message="Expected: dash; Actual: asterisk" severity="info" />
-        <error source="MD004" line="54" message="Expected: dash; Actual: asterisk" severity="info" />
-        <error source="MD004" line="55" message="Expected: dash; Actual: asterisk" severity="info" />
-        <error source="MD004" line="56" message="Expected: dash; Actual: asterisk" severity="info" />
-        <error source="MD004" line="57" message="Expected: dash; Actual: asterisk" severity="info" />
-        <error source="MD013" line="57" message="Expected: 80; Actual: 102" severity="info" />
-        <error source="MD013" line="72" message="Expected: 80; Actual: 102" severity="info" />
-        <error source="MD013" line="69" message="Expected: 80; Actual: 106" severity="info" />
-        <error source="MD013" line="53" message="Expected: 80; Actual: 120" severity="info" />
-        <error source="MD013" line="14" message="Expected: 80; Actual: 140" severity="info" />
-        <error source="MD013" line="64" message="Expected: 80; Actual: 222" severity="info" />
-        <error source="MD013" line="13" message="Expected: 80; Actual: 87" severity="info" />
-        <error source="MD013" line="58" message="Expected: 80; Actual: 92" severity="info" />
-        <error source="MD013" line="55" message="Expected: 80; Actual: 94" severity="info" />
-        <error source="MD022" line="40" message="Expected: 1; Actual: 0; Below" severity="info" />
-        <error source="MD025" line="34" message="Multiple top-level headings in the same document" severity="info" />
-        <error source="MD030" line="5" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="11" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="13" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="25" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="49" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="51" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="53" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="54" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="55" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="56" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="57" message="Expected: 1; Actual: 2" severity="info" />
-        <error source="MD030" line="60" message="Expected: 1; Actual: 2" severity="info" />
-    </file>
+  <file name="readme.md">
+    <error source="MD013" line="43" message="Expected: 120; Actual: 222" severity="info" />
+    <error source="MD030" line="28" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="30" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="32" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="33" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="34" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="35" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="36" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="39" message="Expected: 1; Actual: 2" severity="info" />
+  </file>
 </checkstyle>

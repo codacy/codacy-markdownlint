@@ -1,53 +1,63 @@
-import { Codacyrc, Pattern } from "codacy-seed"
-import { Configuration, Options, promises } from "markdownlint"
-import { toolName } from "./toolMetadata"
-import { fromPairs } from "lodash"
-import * as glob from "glob"
+import {Codacyrc, Pattern} from "codacy-seed"
+import {glob} from "glob"
+import {fromPairs} from "lodash"
+import {Configuration, Options, promises} from "markdownlint"
 
-function patternsToRules(patterns: Pattern[]) {
+import {debug} from "./logging"
+
+function patternsToRules (patterns: Pattern[]): Configuration {
   const rules = patterns.map((pattern) => {
-    const patternId = pattern.patternId
-    if (pattern.parameters) {
-      const parameters = fromPairs(
-        pattern.parameters.map((p) => [p.name, p.value])
-      )
-      return [patternId, parameters]
-    } else {
-      return [patternId, true]
-    }
+    return [
+      pattern.patternId,
+      pattern.parameters
+        ? fromPairs(pattern.parameters.map((p) => [p.name, p.value]))
+        : true
+    ]
   })
-  rules.push(["default", true])
+  rules.unshift(["default", false])
   return fromPairs(rules)
 }
 
-async function createConfiguration(
-  codacyInput?: Codacyrc
+async function generateMarkdownlintOptions (
+  codacyrc?: Codacyrc
 ): Promise<Configuration | undefined> {
-  if (codacyInput && codacyInput.tools) {
-    const markdownlint = codacyInput.tools.find(
-      (tool) => tool.name === toolName
-    )
-    if (markdownlint && markdownlint.patterns) {
-      return patternsToRules(markdownlint.patterns)
-    }
+  if (codacyrc?.tools?.[0]?.patterns && codacyrc.tools[0].patterns.length) {
+    return patternsToRules(codacyrc.tools[0].patterns)
   }
+
   try {
     return await promises.readConfig(".markdownlint.json")
-  } catch (error) {
-    console.error(`Failed to read the .markdownlint.json file. Cause: ${error}`)
+  } catch (e) {
+    debug("No .markdownlint.json file found")
     return undefined
   }
 }
 
-export async function configCreator(codacyInput?: Codacyrc): Promise<Options> {
-  const configuration = await createConfiguration(codacyInput)
+async function generateFilesToAnalyze (
+  codacyrc?: Codacyrc
+): Promise<string[]> {
+  debug("files: creating")
 
-  const files =
-    codacyInput && codacyInput.files ? codacyInput.files : glob.sync("**/*.md")
+  const files = codacyrc?.files && codacyrc.files.length
+    ? codacyrc.files
+    : await glob("**/*.md")
+
+  debug("files: finished")
+  return files
+}
+
+export async function configCreator (codacyrc?: Codacyrc): Promise<Options> {
+  debug("config: creating")
+
+  const configuration = await generateMarkdownlintOptions(codacyrc)
+  const files = await generateFilesToAnalyze(codacyrc)
   const options: Options = {
-    files: files,
-    config: configuration,
-    resultVersion: 3,
+    "files": files,
+    "config": configuration,
+    "resultVersion": 3
   }
+
+  debug(options)
+  debug("config: finished")
   return options
 }

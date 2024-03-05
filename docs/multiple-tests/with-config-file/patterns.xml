@@ -1,5 +1,5 @@
 <module name="root">
-    <module name="BeforeExecutionExclusionFileFilter">
-        <property name="fileNamePattern" value="\.markdownlint\.json" />
-    </module>
+  <module name="BeforeExecutionExclusionFileFilter">
+    <property name="fileNamePattern" value="\.markdownlint\.json" />
+  </module>
 </module>

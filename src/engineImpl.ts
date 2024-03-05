@@ -1,9 +1,10 @@
-import { Codacyrc, Engine, ToolResult } from "codacy-seed"
+import {Codacyrc, Engine, ToolResult} from "codacy-seed"
+import {readFile} from "codacy-seed"
+import {promises} from "markdownlint"
 
-import { convertResults } from "./convertResults"
-import { promises } from "markdownlint"
-import { configCreator } from "./configCreator"
-import { readFile } from "codacy-seed"
+import {configCreator} from "./configCreator"
+import {convertResults} from "./convertResults"
+import {debug} from "./logging"
 
 export const engineImpl: Engine = async function (
   codacyrc?: Codacyrc
@@ -11,6 +12,8 @@ export const engineImpl: Engine = async function (
   const options = await configCreator(codacyrc)
 
   const markdownlintResults = await promises.markdownlint(options)
+
+  debug(markdownlintResults)
 
   const files = await Promise.all(
     codacyrc?.files?.map(async (file) => {

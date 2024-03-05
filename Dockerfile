@@ -1,23 +1,23 @@
-ARG NODE_IMAGE_VERSION=20-alpine3.19
+FROM node:20-alpine3.19 as builder
 
-FROM node:$NODE_IMAGE_VERSION as builder
-COPY package*.json ./
-RUN npm install
+COPY package.json package-lock.json ./
+COPY src src
+COPY docs docs
+COPY tsconfig.json ./
 
-COPY . .
+RUN npm install && \
+    npm cache clean --force && \
+    npm run build:docs
 
-RUN npm run build:docs
-
-FROM node:$NODE_IMAGE_VERSION
-
+FROM node:20-alpine3.19
 COPY --from=builder package*.json ./
-RUN npm install --production
-
 COPY --from=builder dist dist
 COPY --from=builder docs docs
 
-RUN adduser -u 2004 -D docker
-RUN chown -R docker:docker /docs
+RUN npm install --omit=dev && \
+    npm cache clean --force && \ 
+    adduser -u 2004 -D docker && \ 
+    chown -R docker:docker /docs
 
 WORKDIR /src
 
