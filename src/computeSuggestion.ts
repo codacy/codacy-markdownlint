@@ -1,6 +1,6 @@
-import { RuleOnErrorFixInfo } from "markdownlint"
+import {RuleOnErrorFixInfo} from "markdownlint"
 
-export function computeSuggestion(
+export function computeSuggestion (
   lineNumber: number,
   lineContent: string,
   fixInfo: RuleOnErrorFixInfo
@@ -24,7 +24,7 @@ export function computeSuggestion(
   return undefined
 }
 
-function computeSuggestionWhenLineNumberIsDefined(
+function computeSuggestionWhenLineNumberIsDefined (
   lineNumber: number,
   lineContent: string,
   fixInfo: RuleOnErrorFixInfo

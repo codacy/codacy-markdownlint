@@ -1,13 +1,14 @@
-import { Issue } from "codacy-seed"
-import { LintResults } from "markdownlint"
-import { computeSuggestion } from "./computeSuggestion"
+import {Issue} from "codacy-seed"
+import {LintResults} from "markdownlint"
 
-export function convertResults(
+import {computeSuggestion} from "./computeSuggestion"
+
+export function convertResults (
   report: LintResults,
-  filenameToContent: { [x: string]: string }
+  filenameToContent: {[x: string]: string}
 ): Issue[] {
   return Object.entries(report).flatMap((entry) => {
-    let [filename, issues] = entry
+    const [filename, issues] = entry
     const fileContent = filenameToContent[filename]
     const lines = fileContent?.split("\n")
     return issues.map((issue) => {
