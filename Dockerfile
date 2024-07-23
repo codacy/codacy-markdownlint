@@ -1,4 +1,4 @@
-FROM node:20-alpine3.19 as builder
+FROM node:20-alpine3.20 as builder
 
 COPY package.json package-lock.json ./
 COPY src src
@@ -9,7 +9,7 @@ RUN npm install && \
     npm cache clean --force && \
     npm run build:docs
 
-FROM node:20-alpine3.19
+FROM node:20-alpine3.20
 COPY --from=builder package*.json ./
 COPY --from=builder dist dist
 COPY --from=builder docs docs
