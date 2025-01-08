@@ -1,0 +1,7 @@
+default: true
+MD013:
+  line_length: 120
+MD007: 
+  indent: 2
+MD048:
+  style: consistent

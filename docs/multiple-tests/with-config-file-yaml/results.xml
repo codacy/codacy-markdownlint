@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+  <file name="readme.md">
+    <error source="MD013" line="43" message="Expected: 120; Actual: 222" severity="info" />
+    <error source="MD030" line="28" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="30" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="32" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="33" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="34" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="35" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="36" message="Expected: 1; Actual: 2" severity="info" />
+    <error source="MD030" line="39" message="Expected: 1; Actual: 2" severity="info" />
+  </file>
+</checkstyle>
