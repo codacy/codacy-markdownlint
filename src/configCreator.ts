@@ -2,6 +2,7 @@ import {Codacyrc, Pattern} from "codacy-seed"
 import {glob} from "glob"
 import {fromPairs} from "lodash"
 import {Configuration, Options, promises} from "markdownlint"
+import { promises as fs } from "fs"
 
 import {debug} from "./logging"
 
@@ -28,7 +29,7 @@ const configFiles = [
 async function findMarkdownLintConfig(): Promise<string | undefined> {
   for (const file of configFiles) {
     try {
-      await promises.access(file) // Check if the file exists
+      await fs.access(file) // Check if the file exists
       return file // Return the first existing file
     } catch {
       // File doesn't exist, continue to the next one
