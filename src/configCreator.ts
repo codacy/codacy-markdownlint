@@ -18,7 +18,26 @@ function patternsToRules (patterns: Pattern[]): Configuration {
   return fromPairs(rules)
 }
 
-async function generateMarkdownlintOptions (
+const configFiles = [
+  ".markdownlint.yml",
+  ".markdownlint.yaml",
+  ".markdownlint.jsonc",
+  ".markdownlint.json"
+]
+
+async function findMarkdownLintConfig(): Promise<string | undefined> {
+  for (const file of configFiles) {
+    try {
+      await promises.access(file) // Check if the file exists
+      return file // Return the first existing file
+    } catch {
+      // File doesn't exist, continue to the next one
+    }
+  }
+  return undefined // No config file found
+}
+
+async function generateMarkdownlintOptions(
   codacyrc?: Codacyrc
 ): Promise<Configuration | undefined> {
   if (codacyrc?.tools?.[0]?.patterns && codacyrc.tools[0].patterns.length) {
@@ -26,9 +45,13 @@ async function generateMarkdownlintOptions (
   }
 
   try {
-    return await promises.readConfig(".markdownlint.json")
+    const configFile = await findMarkdownLintConfig()
+    if (configFile) {
+      return await promises.readConfig(configFile)
+    }
+    debug("No markdownlint config file found")
   } catch (e) {
-    debug("No .markdownlint.json file found")
+    debug("Error reading markdownlint config:")
     return undefined
   }
 }
