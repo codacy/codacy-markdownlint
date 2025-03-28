@@ -481,7 +481,12 @@
     "description": "Strong style"
   },
   {
-    "parameters": [],
+    "parameters": [
+      {
+        "name": "ignore_case",
+        "description": "Ignore case of fragments"
+      }
+    ],
     "patternId": "MD051",
     "title": "`MD051` - Link fragments should be valid",
     "description": "Link fragments should be valid"
@@ -555,5 +560,11 @@
     "patternId": "MD056",
     "title": "`MD056` - Table column count",
     "description": "Table column count"
+  },
+  {
+    "parameters": [],
+    "patternId": "MD058",
+    "title": "`MD058` - Tables should be surrounded by blank lines",
+    "description": "Tables should be surrounded by blank lines"
   }
 ]

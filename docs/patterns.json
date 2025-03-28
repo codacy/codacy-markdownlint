@@ -1,6 +1,6 @@
 {
   "name": "markdownlint",
-  "version": "0.33.0",
+  "version": "0.37.4",
   "patterns": [
     {
       "patternId": "MD001",
@@ -531,7 +531,12 @@
       "patternId": "MD051",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "ignore_case",
+          "default": false
+        }
+      ],
       "enabled": true
     },
     {
@@ -606,6 +611,13 @@
     },
     {
       "patternId": "MD056",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": true
+    },
+    {
+      "patternId": "MD058",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
