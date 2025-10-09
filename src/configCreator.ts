@@ -2,6 +2,8 @@ import {Codacyrc, Pattern} from "codacy-seed"
 import {glob} from "glob"
 import {fromPairs} from "lodash"
 import {Configuration, Options, promises} from "markdownlint"
+import { promises as fs } from "fs"
+import { join } from "path"
 
 import {debug} from "./logging"
 
@@ -18,19 +20,41 @@ function patternsToRules (patterns: Pattern[]): Configuration {
   return fromPairs(rules)
 }
 
-async function generateMarkdownlintOptions (
+async function generateMarkdownlintOptions(
   codacyrc?: Codacyrc
 ): Promise<Configuration | undefined> {
   if (codacyrc?.tools?.[0]?.patterns && codacyrc.tools[0].patterns.length) {
     return patternsToRules(codacyrc.tools[0].patterns)
   }
 
-  try {
-    return await promises.readConfig(".markdownlint.json")
-  } catch (e) {
-    debug("No .markdownlint.json file found")
-    return undefined
+  const configFiles = [
+    ".markdownlint.json",
+    ".markdownlint.yaml",
+    ".markdownlint.yml",
+    ".markdownlint.jsonc"
+  ]
+
+  for (const file of configFiles) {
+    try {
+      const configPath = join(process.cwd(), file)
+      const content = await fs.readFile(configPath, "utf-8")
+
+      if (file.endsWith(".json") || file.endsWith(".jsonc")) {
+        return JSON.parse(content)
+      } else { 
+        const yaml = require('js-yaml');
+        return yaml.load(content) as Configuration
+      }
+    } catch (e: any) {
+      if (e.code !== "ENOENT") {
+        console.error(`Error reading ${file}:`, e)
+      }
+    }
   }
+
+  // If no config file found
+  debug("No markdownlint configuration file found")
+  return undefined
 }
 
 async function generateFilesToAnalyze (

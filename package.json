@@ -58,6 +58,7 @@
   "dependencies": {
     "codacy-seed": "^2.2.2",
     "glob": "^10.3.10",
+    "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
     "markdownlint": "^0.34.0",
     "node-fetch": "^3.3.2",
