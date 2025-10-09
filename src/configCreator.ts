@@ -20,6 +20,8 @@ function patternsToRules (patterns: Pattern[]): Configuration {
   return fromPairs(rules)
 }
 
+const yaml = require('js-yaml');
+
 async function generateMarkdownlintOptions(
   codacyrc?: Codacyrc
 ): Promise<Configuration | undefined> {
@@ -42,12 +44,11 @@ async function generateMarkdownlintOptions(
       if (file.endsWith(".json") || file.endsWith(".jsonc")) {
         return JSON.parse(content)
       } else { 
-        const yaml = require('js-yaml');
         return yaml.load(content) as Configuration
       }
     } catch (e: any) {
       if (e.code !== "ENOENT") {
-        console.error(`Error reading ${file}:`, e)
+        console.error('Error reading %file:', file, e)
       }
     }
   }
