@@ -96,7 +96,7 @@ export class DocGenerator {
         await writeFile(this.docsPath + "patterns.json", JSON.stringify(specification, null, 2));
     }
 
-    async generatePatternsDescription(patternsSchema: any) {
+async generatePatternsDescription(patternsSchema: any) {
         const descriptionEntries = this.rules.map((rule: any) => {
             const patternId = rule.names[0];
             const ruleSchema = patternsSchema["properties"][patternId];
@@ -105,10 +105,15 @@ export class DocGenerator {
 
             if (properties) {
                 const propertiesNames = Object.keys(properties);
-                parameters = propertiesNames.map((property) => {
-                    return new DescriptionParameter(property, properties[property]["description"]);
-                });
+                
+                // filter out severity and enabled properties from each pattern and create description parameters for the rest
+                parameters = propertiesNames
+                    .filter((property) => property !== "severity" && property !== "enabled")
+                    .map((property) => {
+                        return new DescriptionParameter(property, properties[property]["description"]);
+                    });
             }
+
             const title = this.cleanRuleTitle("`" + patternId + "` - " + rule.description);
             return new DescriptionEntry(patternId, title, rule.description, undefined, parameters);
         });

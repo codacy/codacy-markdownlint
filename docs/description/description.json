@@ -2,14 +2,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "front_matter_title",
         "description": "RegExp for matching title in front matter"
       }
@@ -20,14 +12,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "style",
         "description": "Heading style"
@@ -40,14 +24,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "style",
         "description": "List style"
       }
@@ -57,30 +33,13 @@
     "description": "Unordered list style"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD005",
     "title": "`MD005` - Inconsistent indentation for list items at the same level",
     "description": "Inconsistent indentation for list items at the same level"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "indent",
         "description": "Spaces for indent"
@@ -100,14 +59,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "br_spaces",
         "description": "Spaces for line break"
@@ -132,14 +83,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "code_blocks",
         "description": "Include code blocks"
       },
@@ -157,30 +100,13 @@
     "description": "Hard tabs"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD011",
     "title": "`MD011` - Reversed link syntax",
     "description": "Reversed link syntax"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "maximum",
         "description": "Consecutive blank lines"
@@ -192,14 +118,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "line_length",
         "description": "Number of characters"
@@ -238,90 +156,37 @@
     "description": "Line length"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD014",
     "title": "`MD014` - Dollar signs used before commands without showing output",
     "description": "Dollar signs used before commands without showing output"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD018",
     "title": "`MD018` - No space after hash on atx style heading",
     "description": "No space after hash on atx style heading"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD019",
     "title": "`MD019` - Multiple spaces after hash on atx style heading",
     "description": "Multiple spaces after hash on atx style heading"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD020",
     "title": "`MD020` - No space inside hashes on closed atx style heading",
     "description": "No space inside hashes on closed atx style heading"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD021",
     "title": "`MD021` - Multiple spaces inside hashes on closed atx style heading",
     "description": "Multiple spaces inside hashes on closed atx style heading"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "lines_above",
         "description": "Blank lines above heading"
@@ -336,30 +201,13 @@
     "description": "Headings should be surrounded by blank lines"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD023",
     "title": "`MD023` - Headings must start at the beginning of the line",
     "description": "Headings must start at the beginning of the line"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "siblings_only",
         "description": "Only check sibling headings"
@@ -371,14 +219,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "front_matter_title",
         "description": "RegExp for matching title in front matter"
@@ -395,14 +235,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "punctuation",
         "description": "Punctuation characters"
       }
@@ -414,14 +246,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "list_items",
         "description": "Include list items"
       }
@@ -431,30 +255,13 @@
     "description": "Multiple spaces after blockquote symbol"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD028",
     "title": "`MD028` - Blank line inside blockquote",
     "description": "Blank line inside blockquote"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "style",
         "description": "List style"
@@ -466,14 +273,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "ul_single",
         "description": "Spaces for single-line unordered list items"
@@ -498,14 +297,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "list_items",
         "description": "Include list items"
       }
@@ -515,30 +306,13 @@
     "description": "Fenced code blocks should be surrounded by blank lines"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD032",
     "title": "`MD032` - Lists should be surrounded by blank lines",
     "description": "Lists should be surrounded by blank lines"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "allowed_elements",
         "description": "Allowed elements"
@@ -553,30 +327,13 @@
     "description": "Inline HTML"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD034",
     "title": "`MD034` - Bare URL used",
     "description": "Bare URL used"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "style",
         "description": "Horizontal rule style"
@@ -589,14 +346,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "punctuation",
         "description": "Punctuation characters"
       }
@@ -606,60 +355,25 @@
     "description": "Emphasis used instead of a heading"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD037",
     "title": "`MD037` - Spaces inside emphasis markers",
     "description": "Spaces inside emphasis markers"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD038",
     "title": "`MD038` - Spaces inside code span elements",
     "description": "Spaces inside code span elements"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD039",
     "title": "`MD039` - Spaces inside link text",
     "description": "Spaces inside link text"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "allowed_languages",
         "description": "List of languages"
@@ -675,14 +389,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "allow_preamble",
         "description": "Allow content before first heading"
@@ -701,30 +407,13 @@
     "description": "First line in a file should be a top-level heading"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD042",
     "title": "`MD042` - No empty links",
     "description": "No empty links"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "headings",
         "description": "List of headings"
@@ -740,14 +429,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "names",
         "description": "List of proper names"
@@ -766,30 +447,13 @@
     "description": "Proper names should have the correct capitalization"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD045",
     "title": "`MD045` - Images should have alternate text (alt text)",
     "description": "Images should have alternate text (alt text)"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "style",
         "description": "Block style"
@@ -800,30 +464,13 @@
     "description": "Code block style"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD047",
     "title": "`MD047` - Files should end with a single newline character",
     "description": "Files should end with a single newline character"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "style",
         "description": "Code fence style"
@@ -836,14 +483,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "style",
         "description": "Emphasis style"
       }
@@ -855,14 +494,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "style",
         "description": "Strong style"
       }
@@ -873,14 +504,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "ignore_case",
         "description": "Ignore case of fragments"
@@ -897,14 +520,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "ignored_labels",
         "description": "Ignored link labels"
       },
@@ -920,14 +535,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "ignored_definitions",
         "description": "Ignored definitions"
       }
@@ -938,14 +545,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "autolink",
         "description": "Allow autolinks"
@@ -978,14 +577,6 @@
   {
     "parameters": [
       {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
-      {
         "name": "style",
         "description": "Table pipe style"
       }
@@ -995,45 +586,19 @@
     "description": "Table pipe style"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD056",
     "title": "`MD056` - Table column count",
     "description": "Table column count"
   },
   {
-    "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      }
-    ],
+    "parameters": [],
     "patternId": "MD058",
     "title": "`MD058` - Tables should be surrounded by blank lines",
     "description": "Tables should be surrounded by blank lines"
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "prohibited_texts",
         "description": "Prohibited link texts"
@@ -1045,14 +610,6 @@
   },
   {
     "parameters": [
-      {
-        "name": "enabled",
-        "description": "Whether to enable the rule"
-      },
-      {
-        "name": "severity",
-        "description": "Rule severity"
-      },
       {
         "name": "style",
         "description": "Table column style"
