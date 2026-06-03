@@ -84,7 +84,11 @@ export class DocGenerator {
 
             if (properties) {
                 const propertiesNames = Object.keys(properties);
-                parametersSpecs = propertiesNames.map((property) => new ParameterSpec(property, properties[property]["default"]));
+                
+                // filter out severity and enabled properties from each pattern
+                parametersSpecs = propertiesNames
+                    .filter((property) => property !== "severity" && property !== "enabled")
+                    .map((property) => new ParameterSpec(property, properties[property]["default"]));
             }
             return new PatternSpec(patternId, "Info", "CodeStyle", undefined, parametersSpecs, DocGenerator.isDefaultPattern(patternId, ruleSchema));
         });
