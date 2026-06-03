@@ -1,12 +1,25 @@
 {
   "name": "markdownlint",
-  "version": "0.33.0",
+  "version": "0.40.0",
   "patterns": [
     {
       "patternId": "MD001",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
+          "name": "front_matter_title",
+          "default": "^\\s*title\\s*[:=]"
+        }
+      ],
       "enabled": true
     },
     {
@@ -14,6 +27,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "style",
           "default": "consistent"
@@ -27,6 +48,14 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
           "name": "style",
           "default": "consistent"
         }
@@ -37,7 +66,16 @@
       "patternId": "MD005",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -45,6 +83,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "indent",
           "default": 2
@@ -66,8 +112,20 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
           "name": "br_spaces",
           "default": 2
+        },
+        {
+          "name": "code_blocks",
+          "default": false
         },
         {
           "name": "list_item_empty_lines",
@@ -85,6 +143,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "code_blocks",
           "default": true
@@ -104,7 +170,16 @@
       "patternId": "MD011",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -112,6 +187,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "maximum",
           "default": 1
@@ -124,6 +207,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "line_length",
           "default": 80
@@ -163,35 +254,80 @@
       "patternId": "MD014",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
       "patternId": "MD018",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
       "patternId": "MD019",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
       "patternId": "MD020",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
       "patternId": "MD021",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -199,6 +335,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "lines_above",
           "default": 1
@@ -214,7 +358,16 @@
       "patternId": "MD023",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -222,6 +375,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "siblings_only",
           "default": false
@@ -235,12 +396,20 @@
       "category": "CodeStyle",
       "parameters": [
         {
-          "name": "level",
-          "default": 1
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
         },
         {
           "name": "front_matter_title",
           "default": "^\\s*title\\s*[:=]"
+        },
+        {
+          "name": "level",
+          "default": 1
         }
       ],
       "enabled": true
@@ -250,6 +419,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "punctuation",
           "default": ".,;:!。，；：！"
@@ -261,14 +438,36 @@
       "patternId": "MD027",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
+          "name": "list_items",
+          "default": true
+        }
+      ],
       "enabled": true
     },
     {
       "patternId": "MD028",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -276,6 +475,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "style",
           "default": "one_or_ordered"
@@ -288,6 +495,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "ul_single",
           "default": 1
@@ -313,6 +528,14 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
           "name": "list_items",
           "default": true
         }
@@ -323,7 +546,16 @@
       "patternId": "MD032",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -332,7 +564,19 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
           "name": "allowed_elements",
+          "default": []
+        },
+        {
+          "name": "table_allowed_elements",
           "default": []
         }
       ],
@@ -342,7 +586,16 @@
       "patternId": "MD034",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -350,6 +603,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "style",
           "default": "consistent"
@@ -363,6 +624,14 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
           "name": "punctuation",
           "default": ".,;:!?。，；：！？"
         }
@@ -373,21 +642,48 @@
       "patternId": "MD037",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
       "patternId": "MD038",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
       "patternId": "MD039",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -395,6 +691,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "allowed_languages",
           "default": []
@@ -412,12 +716,24 @@
       "category": "CodeStyle",
       "parameters": [
         {
-          "name": "level",
-          "default": 1
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
+          "name": "allow_preamble",
+          "default": false
         },
         {
           "name": "front_matter_title",
           "default": "^\\s*title\\s*[:=]"
+        },
+        {
+          "name": "level",
+          "default": 1
         }
       ],
       "enabled": false
@@ -426,7 +742,16 @@
       "patternId": "MD042",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -434,6 +759,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "headings",
           "default": []
@@ -450,6 +783,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "names",
           "default": []
@@ -469,7 +810,16 @@
       "patternId": "MD045",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
     },
     {
@@ -477,6 +827,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "style",
           "default": "consistent"
@@ -488,7 +846,16 @@
       "patternId": "MD047",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": false
     },
     {
@@ -496,6 +863,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "style",
           "default": "consistent"
@@ -509,6 +884,14 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
           "name": "style",
           "default": "consistent"
         }
@@ -521,6 +904,14 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
           "name": "style",
           "default": "consistent"
         }
@@ -531,7 +922,24 @@
       "patternId": "MD051",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
+          "name": "ignore_case",
+          "default": false
+        },
+        {
+          "name": "ignored_pattern",
+          "default": ""
+        }
+      ],
       "enabled": true
     },
     {
@@ -539,6 +947,20 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
+          "name": "ignored_labels",
+          "default": [
+            "x"
+          ]
+        },
         {
           "name": "shortcut_syntax",
           "default": false
@@ -551,6 +973,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "ignored_definitions",
           "default": [
@@ -565,6 +995,14 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
         {
           "name": "autolink",
           "default": true
@@ -598,6 +1036,14 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
           "name": "style",
           "default": "consistent"
         }
@@ -608,8 +1054,82 @@
       "patternId": "MD056",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
       "enabled": true
+    },
+    {
+      "patternId": "MD058",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "MD059",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
+          "name": "prohibited_texts",
+          "default": [
+            "click here",
+            "here",
+            "link",
+            "more"
+          ]
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "MD060",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "enabled",
+          "default": true
+        },
+        {
+          "name": "severity",
+          "default": "error"
+        },
+        {
+          "name": "style",
+          "default": "any"
+        },
+        {
+          "name": "aligned_delimiter",
+          "default": false
+        }
+      ],
+      "enabled": false
     }
   ]
 }

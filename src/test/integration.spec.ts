@@ -1,11 +1,12 @@
 import {deepStrictEqual} from "assert"
 import {Issue, ToolResult} from "codacy-seed"
-import {Options, promises} from "markdownlint"
+import {Options} from "markdownlint"
+import { lint } from "markdownlint/promise"
 
-import {convertResults} from "../convertResults"
+import {convertResults} from "../convertResults.js"
 
 async function checkResults (strings: {[x: string]: string}, options: Options, expected: ToolResult[]) {
-  const report = await promises.markdownlint(options)
+  const report = await lint(options)
 
   const results = convertResults(report, strings)
 
@@ -25,8 +26,7 @@ describe("markdownlint", () => {
         "MD032": false,
         "MD041": false,
         "MD047": false
-      },
-      "resultVersion": 3
+      }
     }
 
     const expected: ToolResult[] = [
@@ -47,8 +47,7 @@ describe("markdownlint", () => {
         "MD032": false,
         "MD041": false,
         "MD047": false
-      },
-      "resultVersion": 3
+      }
     }
 
     const expected: ToolResult[] = [

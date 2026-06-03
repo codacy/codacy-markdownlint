@@ -1,7 +1,7 @@
 import {deepStrictEqual} from "assert"
 import {FixInfo, RuleOnErrorFixInfo} from "markdownlint"
 
-import {computeSuggestion} from "../computeSuggestion"
+import {computeSuggestion} from "../computeSuggestion.js"
 
 describe("computeSuggestion", () => {
   const lineContent = "- Identify new Static Analysis issues"

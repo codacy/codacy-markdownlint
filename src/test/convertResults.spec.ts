@@ -2,7 +2,7 @@ import {deepEqual} from "assert"
 import {Issue, ToolResult} from "codacy-seed"
 import {LintResults} from "markdownlint"
 
-import {convertResults} from "../convertResults"
+import {convertResults} from "../convertResults.js"
 
 describe("convertResults", () => {
   it("should convert a Markdownlint report into Codacy results", async () => {
@@ -21,7 +21,9 @@ describe("convertResults", () => {
           "errorRange": [
             1,
             2
-          ]
+          ],
+          "fixInfo": null,
+          "severity": "error"
         },
         {
           "lineNumber": 63,
@@ -36,7 +38,9 @@ describe("convertResults", () => {
           "errorRange": [
             81,
             26
-          ]
+          ],
+          "fixInfo": null,
+          "severity": "error"
         }
       ]
     }

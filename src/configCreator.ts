@@ -1,11 +1,11 @@
 import {Codacyrc, Pattern} from "codacy-seed"
 import {glob} from "glob"
 import {fromPairs} from "lodash"
-import {Configuration, Options, promises} from "markdownlint"
+import {Configuration, Options} from "markdownlint"
 import { promises as fs } from "fs"
 import { join } from "path"
 
-import {debug} from "./logging"
+import {debug} from "./logging.js"
 
 function patternsToRules (patterns: Pattern[]): Configuration {
   const rules = patterns.map((pattern) => {
@@ -78,8 +78,7 @@ export async function configCreator (codacyrc?: Codacyrc): Promise<Options> {
   const files = await generateFilesToAnalyze(codacyrc)
   const options: Options = {
     "files": files,
-    "config": configuration,
-    "resultVersion": 3
+    "config": configuration
   }
 
   debug(options)
