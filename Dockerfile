@@ -1,4 +1,4 @@
-FROM 25-alpine3.23 AS builder
+FROM node:25-alpine3.23 AS builder
 
 COPY package.json package-lock.json ./
 COPY src src

@@ -21,7 +21,7 @@ export class DocGenerator {
     }
 
     getPatternId(title: string) {
-        return title.split("-")[0].replace("~~", "").replace("`", "").replace("`", "").trim();
+        return title.split("-")[0].replace(/[~`]/g, "").trim();
     }
 
     cleanRuleTitle(title: string) {
@@ -51,7 +51,10 @@ export class DocGenerator {
             "MD009",
             "MD040",
             "MD031",
-            "MD047"
+            "MD047",
+            "MD058",
+            "MD059",
+            "MD060"
         ];
         return !disabled.includes(patternId) && propertiesStructure["default"];
     }
