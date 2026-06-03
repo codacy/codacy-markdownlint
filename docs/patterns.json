@@ -1,12 +1,17 @@
 {
   "name": "markdownlint",
-  "version": "0.33.0",
+  "version": "0.40.0",
   "patterns": [
     {
       "patternId": "MD001",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "front_matter_title",
+          "default": "^\\s*title\\s*[:=]"
+        }
+      ],
       "enabled": true
     },
     {
@@ -68,6 +73,10 @@
         {
           "name": "br_spaces",
           "default": 2
+        },
+        {
+          "name": "code_blocks",
+          "default": false
         },
         {
           "name": "list_item_empty_lines",
@@ -235,12 +244,12 @@
       "category": "CodeStyle",
       "parameters": [
         {
-          "name": "level",
-          "default": 1
-        },
-        {
           "name": "front_matter_title",
           "default": "^\\s*title\\s*[:=]"
+        },
+        {
+          "name": "level",
+          "default": 1
         }
       ],
       "enabled": true
@@ -261,7 +270,12 @@
       "patternId": "MD027",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "list_items",
+          "default": true
+        }
+      ],
       "enabled": true
     },
     {
@@ -333,6 +347,10 @@
       "parameters": [
         {
           "name": "allowed_elements",
+          "default": []
+        },
+        {
+          "name": "table_allowed_elements",
           "default": []
         }
       ],
@@ -412,12 +430,16 @@
       "category": "CodeStyle",
       "parameters": [
         {
-          "name": "level",
-          "default": 1
+          "name": "allow_preamble",
+          "default": false
         },
         {
           "name": "front_matter_title",
           "default": "^\\s*title\\s*[:=]"
+        },
+        {
+          "name": "level",
+          "default": 1
         }
       ],
       "enabled": false
@@ -531,7 +553,16 @@
       "patternId": "MD051",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "ignore_case",
+          "default": false
+        },
+        {
+          "name": "ignored_pattern",
+          "default": ""
+        }
+      ],
       "enabled": true
     },
     {
@@ -539,6 +570,12 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "ignored_labels",
+          "default": [
+            "x"
+          ]
+        },
         {
           "name": "shortcut_syntax",
           "default": false
@@ -610,6 +647,46 @@
       "category": "CodeStyle",
       "parameters": [],
       "enabled": true
+    },
+    {
+      "patternId": "MD058",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "MD059",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "prohibited_texts",
+          "default": [
+            "click here",
+            "here",
+            "link",
+            "more"
+          ]
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "MD060",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "style",
+          "default": "any"
+        },
+        {
+          "name": "aligned_delimiter",
+          "default": false
+        }
+      ],
+      "enabled": false
     }
   ]
 }

@@ -1,6 +1,11 @@
 [
   {
-    "parameters": [],
+    "parameters": [
+      {
+        "name": "front_matter_title",
+        "description": "RegExp for matching title in front matter"
+      }
+    ],
     "patternId": "MD001",
     "title": "`MD001` - Heading levels should only increment by one level at a time",
     "description": "Heading levels should only increment by one level at a time"
@@ -57,6 +62,10 @@
       {
         "name": "br_spaces",
         "description": "Spaces for line break"
+      },
+      {
+        "name": "code_blocks",
+        "description": "Include code blocks"
       },
       {
         "name": "list_item_empty_lines",
@@ -211,12 +220,12 @@
   {
     "parameters": [
       {
-        "name": "level",
-        "description": "Heading level"
-      },
-      {
         "name": "front_matter_title",
         "description": "RegExp for matching title in front matter"
+      },
+      {
+        "name": "level",
+        "description": "Heading level"
       }
     ],
     "patternId": "MD025",
@@ -235,7 +244,12 @@
     "description": "Trailing punctuation in heading"
   },
   {
-    "parameters": [],
+    "parameters": [
+      {
+        "name": "list_items",
+        "description": "Include list items"
+      }
+    ],
     "patternId": "MD027",
     "title": "`MD027` - Multiple spaces after blockquote symbol",
     "description": "Multiple spaces after blockquote symbol"
@@ -302,6 +316,10 @@
       {
         "name": "allowed_elements",
         "description": "Allowed elements"
+      },
+      {
+        "name": "table_allowed_elements",
+        "description": "Allowed elements in tables"
       }
     ],
     "patternId": "MD033",
@@ -372,12 +390,16 @@
   {
     "parameters": [
       {
-        "name": "level",
-        "description": "Heading level"
+        "name": "allow_preamble",
+        "description": "Allow content before first heading"
       },
       {
         "name": "front_matter_title",
         "description": "RegExp for matching title in front matter"
+      },
+      {
+        "name": "level",
+        "description": "Heading level"
       }
     ],
     "patternId": "MD041",
@@ -481,13 +503,26 @@
     "description": "Strong style"
   },
   {
-    "parameters": [],
+    "parameters": [
+      {
+        "name": "ignore_case",
+        "description": "Ignore case of fragments"
+      },
+      {
+        "name": "ignored_pattern",
+        "description": "Pattern for ignoring additional fragments"
+      }
+    ],
     "patternId": "MD051",
     "title": "`MD051` - Link fragments should be valid",
     "description": "Link fragments should be valid"
   },
   {
     "parameters": [
+      {
+        "name": "ignored_labels",
+        "description": "Ignored link labels"
+      },
       {
         "name": "shortcut_syntax",
         "description": "Include shortcut syntax"
@@ -555,5 +590,37 @@
     "patternId": "MD056",
     "title": "`MD056` - Table column count",
     "description": "Table column count"
+  },
+  {
+    "parameters": [],
+    "patternId": "MD058",
+    "title": "`MD058` - Tables should be surrounded by blank lines",
+    "description": "Tables should be surrounded by blank lines"
+  },
+  {
+    "parameters": [
+      {
+        "name": "prohibited_texts",
+        "description": "Prohibited link texts"
+      }
+    ],
+    "patternId": "MD059",
+    "title": "`MD059` - Link text should be descriptive",
+    "description": "Link text should be descriptive"
+  },
+  {
+    "parameters": [
+      {
+        "name": "style",
+        "description": "Table column style"
+      },
+      {
+        "name": "aligned_delimiter",
+        "description": "Aligned delimiter columns"
+      }
+    ],
+    "patternId": "MD060",
+    "title": "`MD060` - Table column style",
+    "description": "Table column style"
   }
 ]

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "incremental": true,
     "target": "ES2022",
-    "module": "CommonJS",
+    "module": "nodenext",
     "lib": [
       "ES2022",
       "DOM"

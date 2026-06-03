@@ -1,7 +1,7 @@
 import {Issue} from "codacy-seed"
 import {LintResults} from "markdownlint"
 
-import {computeSuggestion} from "./computeSuggestion"
+import {computeSuggestion} from "./computeSuggestion.js"
 
 export function convertResults (
   report: LintResults,

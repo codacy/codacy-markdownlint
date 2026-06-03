@@ -1,134 +1,135 @@
-import axios from "axios"
-import {
-  DescriptionEntry,
-  DescriptionParameter,
-  ParameterSpec,
-  PatternSpec,
-  Specification,
-  writeFile
-} from "codacy-seed"
-import {promises as fs} from "fs"
-import markdownlint from "markdownlint"
+import axios from "axios";
+import { DescriptionEntry, DescriptionParameter, ParameterSpec, PatternSpec, Specification, writeFile } from "codacy-seed";
+import { promises as fs } from "fs";
+import { getVersion } from "markdownlint";
+// @ts-ignore
+import rules from "../../node_modules/markdownlint/lib/rules.mjs";
 
 export class DocGenerator {
-  docsPath = "./docs/"
+    docsPath = "./docs/";
+    repositoryUrlBase = "https://raw.githubusercontent.com/DavidAnson/markdownlint/v" + getVersion() + "/";
+    ruleLink = new RegExp("<a name=.*</a>");
+    rules: any;
 
-  repositoryUrlBase = "https://raw.githubusercontent.com/DavidAnson/markdownlint/v" + markdownlint.getVersion() + "/"
+    constructor() {
+        this.rules = rules;
+        this.createFolderIfNotExists(this.docsPath + "description");
+    }
 
-  ruleLink = new RegExp("<a name=.*</a>")
+    getPatternIds() {
+        return this.rules.map((rule: any) => rule.names[0]);
+    }
 
-  private readonly rules
+    getPatternId(title: string) {
+        return title.split("-")[0].replace(/[~`]/g, "").trim();
+    }
 
-  constructor () {
-    this.rules = require("../../node_modules/markdownlint/lib/rules.js")
-    this.createFolderIfNotExists(this.docsPath + "description")
-  }
- 
-  getPatternIds (): string[] {
-    return this.rules.map((rule: {"names": string[]}) => rule.names[0])
-  }
+    cleanRuleTitle(title: string) {
+        return title.replace(/~~/g, "");
+    }
 
-  getPatternId (title: string): string {
-    return title.split("-")[0].replace("~~", "").replace("`", "").replace("`", "").trim()
-  }
+    async createDescriptionFiles() {
+        await Promise.all(this.getPatternIds().map(async (patternId: string) => {
+            const url = this.repositoryUrlBase + "doc/" + patternId.toLowerCase() + ".md";
+            const response = await fetch(url);
+            if (!response.ok) {
+                const message = `Failed to retrieve docs for ${patternId} from ${url}`;
+                console.log(message);
+                return;
+            }
+            const content = await response.text();
+            const filename = this.docsPath + "description/" + patternId + ".md";
+            await writeFile(filename, content);
+        }));
+    }
 
-  cleanRuleTitle (title: string): string {
-    return title.replace(/~~/g, "")
-  }
+    static isDefaultPattern(patternId: string, propertiesStructure: any) {
+        const disabled = [
+            "MD013",
+            "MD043",
+            "MD041",
+            "MD009",
+            "MD040",
+            "MD031",
+            "MD047",
+            "MD058",
+            "MD059",
+            "MD060"
+        ];
+        return !disabled.includes(patternId) && propertiesStructure && propertiesStructure["default"];
+    }
 
-  createDescriptionFiles () {
-    Promise.all(this.getPatternIds().map(async (patternId) => {
-      const url = this.repositoryUrlBase + "doc/" + patternId.toLowerCase() + ".md"
-      const response = await fetch(url)
-
-      if (!response.ok) {
-        const message = `Failed to retrieve docs for ${patternId} from ${url}`
-        console.log(message)
-        return
-      }
-
-      const content = await response.text()
-      const filename = this.docsPath + "description/" + patternId + ".md"
-
-      await writeFile(filename, content)
-    }))
-  }
-
-  static isDefaultPattern (patternId: string, propertiesStructure: {[key: string]: boolean}): boolean {
-    const disabled = [
-      "MD013",
-      "MD043",
-      "MD041",
-      "MD009",
-      "MD040",
-      "MD031",
-      "MD047"
-    ]
-
-    return !disabled.includes(patternId) && propertiesStructure["default"]
-  }
-
-  async generateSpecification (patternsSchema: any) {
-    const patternSpecs: PatternSpec[] = this.getPatternIds()
-      .map((patternId) => {
-        const propertiesStructure = patternsSchema["properties"][patternId]
-        
-        let parametersSpecs: ParameterSpec[] = []
-        if (propertiesStructure && propertiesStructure["properties"]) { 
-          const propertiesNames = Object.keys(propertiesStructure["properties"])
-          parametersSpecs = propertiesNames.map((property) => 
-            new ParameterSpec(property, propertiesStructure["properties"][property]["default"])
-          )
+    private getRuleProperties(ruleSchema: any): any {
+        if (!ruleSchema) return undefined;
+        if (ruleSchema["properties"]) return ruleSchema["properties"];
+        // Dig into anyOf/oneOf to find the properties object
+        const variants = ruleSchema["anyOf"] || ruleSchema["oneOf"];
+        if (variants && Array.isArray(variants)) {
+            // verify that each item is a non-null object before accessing its properties
+            // this prevents potential runtime errors if the schema contains unexpected non-object variants.
+            const objectVariant = variants.find((item: any) => item && typeof item === "object" && item.type === "object" && item["properties"]);
+            if (objectVariant) {
+                return objectVariant["properties"];
+            }
         }
-          
-        return new PatternSpec(
-          patternId,
-          "Info",
-          "CodeStyle",
-          undefined,
-          parametersSpecs,
-          DocGenerator.isDefaultPattern(patternId, propertiesStructure)
-        )
-      })
-    const specification = new Specification("markdownlint", markdownlint.getVersion(), patternSpecs)
+        return undefined;
+    }
 
-    await writeFile(this.docsPath + "patterns.json", JSON.stringify(specification, null, 2))
-  }
+    async generateSpecification(patternsSchema: any) {
+        const patternSpecs = this.getPatternIds()
+            .map((patternId: string) => {
+            const ruleSchema = patternsSchema["properties"][patternId];
+            let parametersSpecs: ParameterSpec[] = [];
+            const properties = this.getRuleProperties(ruleSchema);
 
-  async generatePatternsDescription (patternsSchema: any) {
-    const descriptionEntries = this.rules.map((rule: {"names": string[]; "description": string}) => {
-      const patternId = rule.names[0]
-      const ruleSchema = patternsSchema["properties"][patternId]
+            if (properties) {
+                const propertiesNames = Object.keys(properties);
+                
+                // filter out severity and enabled properties from each pattern
+                parametersSpecs = propertiesNames
+                    .filter((property) => property !== "severity" && property !== "enabled")
+                    .map((property) => new ParameterSpec(property, properties[property]["default"]));
+            }
+            return new PatternSpec(patternId, "Info", "CodeStyle", undefined, parametersSpecs, DocGenerator.isDefaultPattern(patternId, ruleSchema));
+        });
+        const specification = new Specification("markdownlint", getVersion(), patternSpecs);
+        await writeFile(this.docsPath + "patterns.json", JSON.stringify(specification, null, 2));
+    }
 
-      let parameters: DescriptionParameter[] = []
-      if (ruleSchema && ruleSchema["properties"]) {
-        const propertiesNames = Object.keys(ruleSchema["properties"])
-        parameters = propertiesNames.map((property) => {
-          return new DescriptionParameter(property, ruleSchema["properties"][property]["description"])
-        })
-      }
+async generatePatternsDescription(patternsSchema: any) {
+        const descriptionEntries = this.rules.map((rule: any) => {
+            const patternId = rule.names[0];
+            const ruleSchema = patternsSchema["properties"][patternId];
+            let parameters: DescriptionParameter[] = [];
+            const properties = this.getRuleProperties(ruleSchema);
 
-      const title = this.cleanRuleTitle("`" + patternId + "` - " + rule.description)
-      return new DescriptionEntry(patternId, title, rule.description, undefined, parameters)
-    })
+            if (properties) {
+                const propertiesNames = Object.keys(properties);
+                
+                // filter out severity and enabled properties from each pattern and create description parameters for the rest
+                parameters = propertiesNames
+                    .filter((property) => property !== "severity" && property !== "enabled")
+                    .map((property) => {
+                        return new DescriptionParameter(property, properties[property]["description"]);
+                    });
+            }
 
-    await writeFile(this.docsPath + "description/description.json", JSON.stringify(descriptionEntries, null, 2) + "\n")
-  }
+            const title = this.cleanRuleTitle("`" + patternId + "` - " + rule.description);
+            return new DescriptionEntry(patternId, title, rule.description, undefined, parameters);
+        });
+        await writeFile(this.docsPath + "description/description.json", JSON.stringify(descriptionEntries, null, 2) + "\n");
+    }
 
-  private async createFolderIfNotExists (dir: string) {
-    await fs.access(dir).catch(() => fs.mkdir(dir))
-  }
-
+    async createFolderIfNotExists(dir: string) {
+        await fs.access(dir).catch(() => fs.mkdir(dir));
+    }
 }
 
-async function main () {
-  const docGenerator = new DocGenerator()
-  docGenerator.createDescriptionFiles()
-
-  const rulesSchemaRequest = await axios.get(docGenerator.repositoryUrlBase + "schema/markdownlint-config-schema.json")
-  await docGenerator.generateSpecification(rulesSchemaRequest.data)
-  await docGenerator.generatePatternsDescription(rulesSchemaRequest.data)
+async function main() {
+    const docGenerator = new DocGenerator();
+    await docGenerator.createDescriptionFiles();
+    const rulesSchemaRequest = await axios.get(docGenerator.repositoryUrlBase + "schema/markdownlint-config-schema.json");
+    await docGenerator.generateSpecification(rulesSchemaRequest.data);
+    await docGenerator.generatePatternsDescription(rulesSchemaRequest.data);
 }
-
-main()
-
+main();
