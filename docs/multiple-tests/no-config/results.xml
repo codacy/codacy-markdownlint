@@ -10,6 +10,7 @@
     <error source="MD013" line="34" message="Expected: 80; Actual: 94" severity="info" />
     <error source="MD013" line="36" message="Expected: 80; Actual: 102" severity="info" />
     <error source="MD013" line="37" message="Expected: 80; Actual: 92" severity="info" />
+    <error source="MD013" line="39" message="Expected: 80; Actual: 82" severity="info" />
     <error source="MD013" line="43" message="Expected: 80; Actual: 222" severity="info" />
     <error source="MD013" line="48" message="Expected: 80; Actual: 106" severity="info" />
     <error source="MD013" line="51" message="Expected: 80; Actual: 102" severity="info" />
