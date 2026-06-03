@@ -1,9 +1,10 @@
 import {Codacyrc, Pattern} from "codacy-seed"
 import {glob} from "glob"
-import {fromPairs} from "lodash"
+import _ from "lodash"
 import {Configuration, Options} from "markdownlint"
 import { promises as fs } from "fs"
 import { join } from "path"
+import yaml from "js-yaml"
 
 import {debug} from "./logging.js"
 
@@ -12,15 +13,14 @@ function patternsToRules (patterns: Pattern[]): Configuration {
     return [
       pattern.patternId,
       pattern.parameters
-        ? fromPairs(pattern.parameters.map((p) => [p.name, p.value]))
+        ? _.fromPairs(pattern.parameters.map((p) => [p.name, p.value]))
         : true
     ]
   })
   rules.unshift(["default", false])
-  return fromPairs(rules)
+  return _.fromPairs(rules)
 }
 
-const yaml = require('js-yaml');
 
 async function generateMarkdownlintOptions(
   codacyrc?: Codacyrc

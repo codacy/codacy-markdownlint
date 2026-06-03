@@ -1,4 +1,5 @@
 import {deepStrictEqual} from "assert"
+import {describe, it} from "mocha"
 import {FixInfo, RuleOnErrorFixInfo} from "markdownlint"
 
 import {computeSuggestion} from "../computeSuggestion.js"
