@@ -28,8 +28,8 @@ export class DocGenerator {
         return title.replace(/~~/g, "");
     }
 
-    createDescriptionFiles() {
-        Promise.all(this.getPatternIds().map(async (patternId: string) => {
+    async createDescriptionFiles() {
+        await Promise.all(this.getPatternIds().map(async (patternId: string) => {
             const url = this.repositoryUrlBase + "doc/" + patternId.toLowerCase() + ".md";
             const response = await fetch(url);
             if (!response.ok) {
@@ -56,18 +56,18 @@ export class DocGenerator {
             "MD059",
             "MD060"
         ];
-        return !disabled.includes(patternId) && propertiesStructure["default"];
+        return !disabled.includes(patternId) && propertiesStructure && propertiesStructure["default"];
     }
 
-    // NEW HELPER: Safely extracts properties from the new strict JSON Schema structure
     private getRuleProperties(ruleSchema: any): any {
         if (!ruleSchema) return undefined;
         if (ruleSchema["properties"]) return ruleSchema["properties"];
-        
         // Dig into anyOf/oneOf to find the properties object
         const variants = ruleSchema["anyOf"] || ruleSchema["oneOf"];
         if (variants && Array.isArray(variants)) {
-            const objectVariant = variants.find((item: any) => item.type === "object" && item["properties"]);
+            // verify that each item is a non-null object before accessing its properties
+            // this prevents potential runtime errors if the schema contains unexpected non-object variants.
+            const objectVariant = variants.find((item: any) => item && typeof item === "object" && item.type === "object" && item["properties"]);
             if (objectVariant) {
                 return objectVariant["properties"];
             }
@@ -80,8 +80,6 @@ export class DocGenerator {
             .map((patternId: string) => {
             const ruleSchema = patternsSchema["properties"][patternId];
             let parametersSpecs: ParameterSpec[] = [];
-            
-            // USE HELPER HERE
             const properties = this.getRuleProperties(ruleSchema);
 
             if (properties) {
@@ -99,8 +97,6 @@ export class DocGenerator {
             const patternId = rule.names[0];
             const ruleSchema = patternsSchema["properties"][patternId];
             let parameters: DescriptionParameter[] = [];
-            
-            // USE HELPER HERE
             const properties = this.getRuleProperties(ruleSchema);
 
             if (properties) {
@@ -122,7 +118,7 @@ export class DocGenerator {
 
 async function main() {
     const docGenerator = new DocGenerator();
-    docGenerator.createDescriptionFiles();
+    await docGenerator.createDescriptionFiles();
     const rulesSchemaRequest = await axios.get(docGenerator.repositoryUrlBase + "schema/markdownlint-config-schema.json");
     await docGenerator.generateSpecification(rulesSchemaRequest.data);
     await docGenerator.generatePatternsDescription(rulesSchemaRequest.data);
