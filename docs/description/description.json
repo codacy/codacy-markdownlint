@@ -188,6 +188,10 @@
   {
     "parameters": [
       {
+        "name": "include_front_matter",
+        "description": "Include front matter content"
+      },
+      {
         "name": "lines_above",
         "description": "Blank lines above heading"
       },

@@ -63,7 +63,7 @@
     "glob": "10.3.10",
     "js-yaml": "^4.1.0",
     "lodash": "4.17.21",
-    "markdownlint": "0.40.0",
+    "markdownlint": "0.41.1",
     "node-fetch": "3.3.2",
     "typescript": "5.3.3"
   },
